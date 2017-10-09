@@ -1,5 +1,16 @@
 # Crosstool-NG
 
+add fix patch && enable multilib patch
+https://gcc.gnu.org/bugzilla/show_bug.cgi?id=80717
+
+patch -p1 -i packages/gcc/7.2.0/Revert-eeb6872bf.patch
+
+https://gcc.gnu.org/bugzilla/show_bug.cgi?id=82155
+
+patch -p1 -i packages/gcc/7.2.0/PR82155.patch
+
+patch -p1 < packages/gcc/7.2.0/enable-with-multilib-list-for-arm.patch
+
 ## Introduction
 
 Crosstool-NG aims at building toolchains. Toolchains are an essential component in a software development project. It will compile, assemble and link the code that is being developed. Some pieces of the toolchain will eventually end up in the resulting binaries: static libraries are but an example.
